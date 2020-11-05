@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  expedition_merman_events_listener:
+    image: registry.gitlab.fogstream.ru/fogstream/expedition/expedition-merman-wrapper/merman_wrapper:latest
+    env_file:
+      - .env
+    command: python manage.py run_firebird_events_listener
+
+  expedition_merman_wrapper:
+    image: registry.gitlab.fogstream.ru/fogstream/expedition/expedition-merman-wrapper/merman_wrapper:latest
+    depends_on:
+      - expedition_merman_events_listener
+    volumes:
+      - expedition_merman_wrapper_logs:/application/logs
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+
+volumes:
+    expedition_merman_wrapper_logs:

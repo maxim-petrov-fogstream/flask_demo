@@ -1,0 +1,46 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+pytest-flask = "*"
+pytest-ordering = "*"
+responses = "*"
+sqlacodegen = "*"
+autopep8 = "*"
+v = {editable = true,version = "*"}
+flake8 = "==3.7.7"
+flake8-import-order = "*"
+#flake8-docstrings = "==1.2.0" FIXME: https://gitlab.com/pycqa/flake8-docstrings/issues/36
+flake8-quotes = "*"
+flake8-builtins = "*"
+pytest-mock = "*"
+
+[packages]
+Flask = ">=1.0.2"
+flask-script = ">=2.0.6"
+flask-sqlalchemy = ">=2.3.2"
+fdb = "==2.0.0"
+sqlalchemy = ">=1.2.15"
+blueprint = ">=3.4.2"
+uwsgi = ">=2.0"
+setproctitle = "*"
+requests = ">=2.21.0"
+marshmallow = "==3.0.0rc5"
+flasgger = "*"
+apispec = "==1.0.0b5"
+setuptools = "*"
+sentry-sdk = "*"
+blinker = "*"
+celery = "*"
+kombu = "*"
+redis = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true

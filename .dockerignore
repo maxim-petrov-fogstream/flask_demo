@@ -1,0 +1,16 @@
+client/.tmp/
+node_modules/
+.tmp/
+.git/
+.idea/
+__pycache__
+.bumpversion.cfg
+scripts/*
+docker-compose.yml
+.ash_history
+Dockerfile
+.gitignore
+.cache
+*.py[cod]
+.coverage
+.dockerignore

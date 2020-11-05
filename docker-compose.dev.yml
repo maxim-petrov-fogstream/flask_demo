@@ -1,0 +1,33 @@
+# Для того, чтобы развернуть дамп, необходимо:
+# 1. поместить его в volume "firebird_backup"
+# 2. запустить контейнер с firebird и узнать его id
+#    (выполнив комманду `docker ps`)
+# 3. запустить терминал внутри контейнера:
+#    `docker exec -it id_контенера /bin/sh`
+# 4. внутри контенера выполнить:
+#    ```
+# /usr/local/firebird/bin/gbak -c /firebird/backup/_hehles.bak /firebird/data/$FIREBIRD_DATABASE -user $FIREBIRD_USER -pas $FIREBIRD_PASSWORD
+#    ```
+version: '3'
+
+services:
+  expedition_merman_wrapper:
+    depends_on:
+      - firebird
+    volumes:
+    - .:/application/expedition_merman_wrapper
+    command: python manage.py runserver -p 8000
+
+  firebird:
+    image: jacobalberty/firebird:2.5-sc
+    ports:
+      - "3050:3050"
+    volumes:
+      - firebird_data:/firebird/data
+      - firebird_backup:/firebird/backup
+    env_file:
+      - .env
+
+volumes:
+  firebird_data:
+  firebird_backup:

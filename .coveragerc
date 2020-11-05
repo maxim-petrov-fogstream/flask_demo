@@ -1,0 +1,9 @@
+[run]
+omit =
+    manage.py
+    conftest.py
+    **/__init__.py
+    expedition_merman_wrapper/wsgi.py
+    expedition_merman_wrapper/config.py
+    exported_models/*
+    .venv/*

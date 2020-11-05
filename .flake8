@@ -1,0 +1,5 @@
+[flake8]
+exclude = .git,__pycache__,poc_scripts
+application-import-names = expedition_merman_wrapper, tests
+import-order-style = pep8
+ignore=A003, W503, D107
